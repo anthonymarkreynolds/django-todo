@@ -11,6 +11,25 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+import environ
+
+# Load environment variables from a .env file
+load_dotenv()
+
+# Use django-environ to set the environment variables
+env = environ.Env(
+    DEBUG=(bool, False),
+    SECRET_KEY=(str, ''),
+    DB_NAME=(str, ''),
+    DB_USER=(str, ''),
+    DB_PASSWORD=(str, ''),
+    DB_HOST=(str, ''),
+    DB_PORT=(str, ''),
+)
+
+# Define your settings using the environment variables
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +39,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ru@)d&7-kf(u68op_v7y1lsw8x9+p%25*1t=r5g%y!skk9b-9r'
+SECRET_KEY = env('SECRET_KEY')
+# SECRET_KEY = 'django-insecure-ru@)d&7-kf(u68op_v7y1lsw8x9+p%25*1t=r5g%y!skk9b-9r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -75,8 +95,12 @@ WSGI_APPLICATION = 'todoapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
     }
 }
 
