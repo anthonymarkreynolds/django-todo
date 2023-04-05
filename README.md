@@ -1,6 +1,6 @@
 # Django Todo App
 
-## Django Todo App
+## Overview
 
 This is a simple web application built using the Django framework. I am building this app to get my feet wet with Django and learn the ropes.
 
