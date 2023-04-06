@@ -23,8 +23,9 @@ This app is still a work in progress, and I plan to continue adding new features
 - [x] How to create a Django project and app using `django-admin startproject` and `python manage.py startapp`
 - [x] How to create a PostgreSQL database and set it up in Django settings
 - [x] How to create and apply database migrations using `python manage.py makemigrations` and `python manage.py migrate`
-- [ ] How to create models and interact with the database using the Django ORM
+- [x] How to create models and interact with the database using the Django ORM
 - [ ] How to create views and templates for rendering HTML content
+- [x] How to use Django forms
 - [x] How to use the Django admin site for managing database records
 - [x] How to create a superuser to access the admin site using `python manage.py createsuperuser`
 - [x] How to use environment variables to keep sensitive information like database credentials and secret keys secure
